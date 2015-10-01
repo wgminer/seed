@@ -1,9 +1,10 @@
 {
-  "name": "seed",
+  "name": "pileus",
   "version": "0.0.0",
   "devDependencies": {
     "browser-sync": "^2.8.2",
     "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
     "gulp-concat": "^2.6.0",
     "gulp-jshint": "^1.11.2",
     "gulp-livereload": "^3.8.0",

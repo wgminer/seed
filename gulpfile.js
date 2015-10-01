@@ -1,19 +1,15 @@
 var gulp = require('gulp'); 
+var sass = require('gulp-sass');
 var browserSync = require('browser-sync').create();
-var precss = require('precss');
-var postcss = require('gulp-postcss');
-
-gulp.task('css', function () {
-    var processors = [
-        precss
-    ];
-    return gulp.src('./dev/postcss/*.css')
-        .pipe(postcss(processors))
-        .pipe(gulp.dest('./dev/css'));
+ 
+gulp.task('sass', function () {
+    gulp.src('dev/scss/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('dev/css'));
 });
 
 gulp.task('browser-sync', function() {
-    browserSync.init(['dev/postcss/**/*.css', 'dev/js/**/*.js', 'dev/**/*.html'], {
+    browserSync.init(['dev/css/**/*.css', 'dev/js/**/*.js', 'dev/**/*.html'], {
         server: {
             baseDir: './dev',
             routes: {
@@ -23,6 +19,6 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task('default', ['css', 'browser-sync'], function () {
-    gulp.watch('dev/postcss/*.css', ['css']);
+gulp.task('default', ['sass', 'browser-sync'], function () {
+    gulp.watch('dev/scss/**/*.scss', ['sass']);
 });

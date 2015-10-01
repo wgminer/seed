@@ -1,33 +1,24 @@
 <!DOCTYPE html>
-<html ng-app="pileus">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Pileus</title>    
+        <title>Connect | Pileus</title>    
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
         <link href="//fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
 
-        <header class="masthead">
-            <div class="container">
-                <h1 class="masthead__title"><a href="/">Pileus</a></h1>
-            </div>
+        <header class="site-header">
+
         </header>
-
-        <main class="view" ng-view="">
-
-        </main>
         
-        <script src="//connect.soundcloud.com/sdk.js"></script>
+        <script src="//connect.soundcloud.com/sdk-2.0.0.js"></script>
         
         <!-- build:js(.) js/vendor.js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
-        <script src="bower_components/moment/moment.js"></script>
         <script src="bower_components/angular/angular.js"></script>
-        <script src="bower_components/angular-moment/angular-moment.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <!-- endbuild -->
@@ -37,7 +28,6 @@
         <script src="js/controllers.js"></script>
         <script src="js/directives.js"></script>
         <script src="js/services.js"></script>
-        <script src="js/filters.js"></script>
         <!-- endbuild -->
 
     </body>

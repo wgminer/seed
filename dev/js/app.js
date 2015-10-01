@@ -1,31 +1,48 @@
 'use strict';
 
-angular.module('seed', ['ngRoute']);
-var app = angular.module('seed');
+angular.module('pileus', ['ngRoute', 'ngCookies', 'angularMoment']);
+var app = angular.module('pileus');
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $locationProvider) {
+
     $routeProvider
         .when('/', {
-            templateUrl: 'views/main.html',
-            controller: 'MainCtrl'
+            templateUrl: 'views/splash.html',
+            controller: 'SplashCtrl'
         })
-        .otherwise({
-            redirectTo: '/'
+        .when('/:username', {
+            templateUrl: 'views/playlist.html',
+            controller: 'PlaylistCtrl'
         });
-})
-
-app.run(function ($route, $rootScope, $location) {
-    
-    var original = $location.path;
-    $location.path = function (path, reload) {
-        if (reload === false) {
-            var lastRoute = $route.current;
-            var un = $rootScope.$on('$locationChangeSuccess', function () {
-                $route.current = lastRoute;
-                un();
-            });
-        }
-        return original.apply($location, [path]);
-    };
 });
 
+app.run(function ($rootScope, $location, $cookies, Local) {
+
+    if ($cookies.get('token')) {
+        
+        SC.initialize({
+            client_id: 'a7aad5a5edff30939d765de438dd2184',
+            redirect_uri: 'http://localhost:3000/#/connect',
+            access_token: $cookies.get('token')
+        });
+
+        SC.get('/me', function (me, error) {
+            if (error) {
+                console.log('ERROR: ' + error);
+                $location.path('/')
+            } else {
+                Local.user = me;
+                $location.path('/' + Local.user.permalink);
+            }
+        });
+    } else {
+        SC.initialize({
+            client_id: 'a7aad5a5edff30939d765de438dd2184',
+            redirect_uri: 'http://localhost:3000/#/connect'
+        }).get('/me', function (me) {
+            Local.user = me;
+            $location.path('/' + Local.user.permalink);
+        });
+    }
+
+});
