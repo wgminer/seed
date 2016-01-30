@@ -1,6 +1,6 @@
 node_modules
 bower_components
 libs
-build
+dist
 .DS_Store
 

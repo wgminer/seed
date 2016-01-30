@@ -1,4 +1,4 @@
-.clearfix () {
+@mixin clearfix {
     &:after {
         content: "";
         display: table;
@@ -6,7 +6,7 @@
     }
 }
 
-.ellipsis () {
+@mixin ellipsis {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
