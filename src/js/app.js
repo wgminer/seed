@@ -1,19 +1,38 @@
 'use strict';
 
-angular.module('seed', ['ngRoute', 'ngCookies', 'angularMoment']);
-var app = angular.module('seed');
+var app = angular.module('print-issues', ['dndLists']);
 
-app.config(function ($routeProvider, $locationProvider) {
+app.service('Local', function ($q, $rootScope) {
 
-    $routeProvider
-        .when('/', {
-            templateUrl: 'views/splash.html',
-            controller: 'MainCtrl'
-        })
-});
+    var self = this;
 
-app.run(function ($rootScope, $location) {
-
-
+    self.keys = [];
+    self.issues = [];
+    
+    self.options = {
+    	layout: 'four'
+    };
 
 });
+
+app.controller('AppCtrl', function ($scope, $rootScope, Local) {
+
+	$scope.options = Local.options;
+	$scope.fields = Local.keys;
+
+	$scope.$on('uploaded', function(event, index) {
+   		$scope.fields = Local.keys;
+	});
+
+	$scope.setLayout = function (layout) {
+		$scope.options.layout = Local.options.layout = layout;
+	}
+
+});
+
+
+
+
+
+
+

@@ -1,32 +1,38 @@
 var gulp = require('gulp'); 
-var clean = require('gulp-clean');
 var postcss = require('gulp-postcss');
 var less = require('gulp-less');
-var sass = require('gulp-sass');
+var jade = require('gulp-jade');
 var browserSync = require('browser-sync').create();
- 
-gulp.task('sass', function () {
-    gulp.src('src/scss/**/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('src/css'));
-});
+
+var plugins = [
+    require('autoprefixer'),
+    require('cssnano')
+];
 
 gulp.task('less', function () {
-    gulp.src('src/less/**/*.less')
-        .pipe(less().on('error', less.logError))
-        .pipe(gulp.dest('build/css'));
+    gulp.src('./src/less/main.less')
+        .pipe(less({
+            paths: ['libs/harmony/src']
+        }))
+        .pipe(postcss(plugins))
+        .pipe(gulp.dest('./build/css'));
 });
 
 gulp.task('jade', function() {
-    return gulp.src(['src/**/*.jade'])
+    return gulp.src(['./src/**/*.jade'])
         .pipe(jade())
         .pipe(gulp.dest('build'));
 });
 
+gulp.task('js', function() {
+    return gulp.src(['./src/js/**/*.js',  './src/js/**/*.json'])
+        .pipe(gulp.dest('./build/js'));
+});
+
 gulp.task('browser-sync', function() {
-    browserSync.init(['src/css/**/*.css', 'src/js/**/*.js', 'src/**/*.html'], {
+    browserSync.init(['./build/css/**/*.css', './build/js/**/*.js', './build/**/*.html'], {
         server: {
-            baseDir: './src',
+            baseDir: './build',
             routes: {
                 '/libs': 'libs'
             }
@@ -34,6 +40,8 @@ gulp.task('browser-sync', function() {
     });
 });
 
-gulp.task('default', ['sass', 'browser-sync'], function () {
-    gulp.watch('src/scss/**/*.scss', ['sass']);
+gulp.task('default', ['less', 'jade', 'js', 'browser-sync'], function () {
+    gulp.watch('less/**/*.less', {cwd: 'src'}, ['less']);
+    gulp.watch('**/*.jade', {cwd: 'src'}, ['jade']);
+    gulp.watch('js/**/*.js', {cwd: 'src'}, ['js']);
 });
