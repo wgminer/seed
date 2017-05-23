@@ -1,0 +1,19 @@
+include ../partials/mixins.pug
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        link(rel="shortcut icon", type="image/x-icon", href= '//whitelabel-prod.herokuapp.com/cdn/v1/' + code + '/favicon.ico')
+        title= title
+        link(rel="stylesheet", href= '//whitelabel-prod.herokuapp.com/cdn/v1/' + code + '/uni.min.css')
+        link(rel="stylesheet", href="/css/main.css")
+    body
+        a(href="#maincontent" class="u--sr-only") Skip to main content
+
+        include ../partials/two-bar
+
+        script(src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+        script(src="/js/main.js")

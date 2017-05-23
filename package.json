@@ -51,6 +51,7 @@
     "stylelint-scss": "^1.4.1",
     "stylelint-selector-bem-pattern": "^1.0.0",
     "webfonts-generator": "^0.3.5",
-    "yaml-front-matter": "^3.4.0"
+    "yaml-front-matter": "^3.4.0",
+    "uni": "git+https://622df0f41d8e2ae6877cdd530a027fd9a9eb51df:x-oauth-basic@github.com/2uinc/uni.git",
   }
 }
