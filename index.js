@@ -7,11 +7,11 @@ const express = require('express');
 const favicon = require('serve-favicon');
 const app = express();
 const router = express.Router();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
-app.set('views', './views');
+app.set('views', 'src');
 app.set('view engine', 'pug');
-app.use(express.static('public')); 
+app.use(express.static('public'));
 app.use(favicon(__dirname + '/public/favicon.ico'));
 
 app.get('/', (req, res) => {

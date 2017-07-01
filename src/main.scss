@@ -1,0 +1,130 @@
+// VARIABLES
+
+$px: 8px !default;
+
+// RESET
+
+* {
+    box-sizing: border-box;
+}
+
+button {
+    font-family: inherit;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    margin: 0;
+}
+
+// SPACING
+@for $i from 0 through 8 {
+
+    .u-p#{$i} {
+        padding: $px * $i !important;
+    }
+
+    .u-pb#{$i} {
+        padding-bottom: $px * $i !important;
+    }
+
+    .u-pt#{$i} {
+        padding-top: $px * $i !important;
+    }
+
+    .u-pl#{$i} {
+        padding-left: $px * $i !important;
+    }
+
+    .u-pr#{$i} {
+        padding-right: $px * $i !important;
+    }
+
+    .u-m#{$i} {
+        margin: $px * $i !important;
+    }
+
+    .u-mb#{$i} {
+        margin-bottom: $px * $i !important;
+    }
+
+    .u-mt#{$i} {
+        margin-top: $px * $i !important;
+    }
+
+    .u-ml#{$i} {
+        margin-left: $px * $i !important;
+    }
+
+    .u-mr#{$i} {
+        margin-right: $px * $i !important;
+    }
+}
+
+// TEXT ALIGNMENT
+.u-tar {
+    text-align: right;
+}
+
+.u-tal {
+    text-align: left;
+}
+
+.u-tac {
+    text-align: center;
+}
+
+// DISPLAY
+.u-db {
+    display: block;
+}
+
+.u-dib {
+    display: inline-block;
+}
+
+.u-di {
+    display: inline;
+}
+
+.u-dn {
+    display: none;
+}
+
+// POSITION
+.u-pf {
+    position: fixed;
+}
+
+.u-pa {
+    position: absolute;
+}
+
+// FONT WEIGHT
+.u-fw400 {
+    font-weight: 400;
+}
+
+.u-t0 {
+    top: 0;
+}
+
+.u-l0 {
+    left: 0;
+}
+
+.intro {
+	text-align: center;
+	line-height: 75vh;
+	margin: 0;
+}
