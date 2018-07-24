@@ -4,7 +4,7 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "dev:js": "babel src/**/*.js --watch --out-file public/app.js",
+    "dev:js": "babel src/**/*.js --watch --out-file public/bundle.js",
     "build:scss": "node-sass src -o public",
     "dev:scss": "npm run build:scss && node-sass src -wo public",
     "dev": "concurrently \"npm run dev:js\" \"npm run dev:scss\" \"nodemon index.js\""

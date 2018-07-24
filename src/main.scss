@@ -30,101 +30,105 @@ body {
 // SPACING
 @for $i from 0 through 8 {
 
-    .u-p#{$i} {
+    .p-#{$i} {
         padding: $px * $i !important;
     }
 
-    .u-pb#{$i} {
+    .pb-#{$i} {
         padding-bottom: $px * $i !important;
     }
 
-    .u-pt#{$i} {
+    .pt-#{$i} {
         padding-top: $px * $i !important;
     }
 
-    .u-pl#{$i} {
+    .pl-#{$i} {
         padding-left: $px * $i !important;
     }
 
-    .u-pr#{$i} {
+    .pr-#{$i} {
         padding-right: $px * $i !important;
     }
 
-    .u-m#{$i} {
+    .m-#{$i} {
         margin: $px * $i !important;
     }
 
-    .u-mb#{$i} {
+    .mb-#{$i} {
         margin-bottom: $px * $i !important;
     }
 
-    .u-mt#{$i} {
+    .mt-#{$i} {
         margin-top: $px * $i !important;
     }
 
-    .u-ml#{$i} {
+    .ml-#{$i} {
         margin-left: $px * $i !important;
     }
 
-    .u-mr#{$i} {
+    .mr-#{$i} {
         margin-right: $px * $i !important;
     }
 }
 
 // TEXT ALIGNMENT
-.u-tar {
+.tar {
     text-align: right;
 }
 
-.u-tal {
+.tal {
     text-align: left;
 }
 
-.u-tac {
+.tac {
     text-align: center;
 }
 
 // DISPLAY
-.u-db {
+.d-block {
     display: block;
 }
 
-.u-dib {
+.d-inline-block {
     display: inline-block;
 }
 
-.u-di {
+.d-inline {
     display: inline;
 }
 
-.u-dn {
+.d-none {
+    display: none;
+}
+
+.d-flex {
     display: none;
 }
 
 // POSITION
-.u-pf {
+.pf {
     position: fixed;
 }
 
-.u-pa {
+.pa {
     position: absolute;
 }
 
 // FONT WEIGHT
-.u-fw400 {
+.fw400 {
     font-weight: 400;
 }
 
-.u-t0 {
+.t0 {
     top: 0;
 }
 
-.u-l0 {
+.l0 {
     left: 0;
 }
 
 .intro {
 	text-align: center;
-	line-height: 75vh;
+	line-height: 100vh;
 	margin: 0;
 }

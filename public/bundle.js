@@ -3,7 +3,5 @@ var app = new Vue({
     data: {
         welcome: 'Hello world!'
     },
-    methods: {
-
-    }
+    methods: {}
 });
